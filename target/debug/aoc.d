@@ -1,0 +1,1 @@
+D:\projects\aoc\target\debug\aoc.exe: D:\projects\aoc\src\days\day1.rs D:\projects\aoc\src\days\day2.rs D:\projects\aoc\src\days\day3.rs D:\projects\aoc\src\days\day4.rs D:\projects\aoc\src\days\mod.rs D:\projects\aoc\src\inputs\1 D:\projects\aoc\src\inputs\2 D:\projects\aoc\src\inputs\3 D:\projects\aoc\src\inputs\4 D:\projects\aoc\src\main.rs
