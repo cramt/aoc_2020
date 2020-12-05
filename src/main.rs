@@ -6,7 +6,8 @@ use std::collections::HashMap;
 use crate::days::day3::Day3;
 use crate::days::Day;
 use crate::days::day4::Day4;
+use crate::days::day5::Day5;
 
 fn main() {
-    println!("{:?}", Day4.part1())
+    println!("{:?}", Day5.part2());
 }
