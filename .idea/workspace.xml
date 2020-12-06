@@ -4,9 +4,9 @@
     <cargoProject FILE="$PROJECT_DIR$/Cargo.toml" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4e322702-71bd-46f2-a4ef-e461e39bccbd" name="Default Changelist" comment="deleted target">
-      <change afterPath="$PROJECT_DIR$/src/days/day5.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/inputs/5" afterDir="false" />
+    <list default="true" id="4e322702-71bd-46f2-a4ef-e461e39bccbd" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/days/day6.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/inputs/6" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/days/mod.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/days/mod.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.rs" afterDir="false" />
@@ -61,6 +61,17 @@
     </key>
   </component>
   <component name="RunManager">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Run" type="CargoCommandRunConfiguration" factoryName="Cargo Command">
       <option name="channel" value="DEFAULT" />
       <option name="command" value="run --package aoc --bin aoc" />
@@ -91,7 +102,8 @@
       <workItem from="1607083038547" duration="2259000" />
       <workItem from="1607085334712" duration="3045000" />
       <workItem from="1607118955345" duration="4420000" />
-      <workItem from="1607168395775" duration="4679000" />
+      <workItem from="1607168395775" duration="7207000" />
+      <workItem from="1607254456261" duration="2421000" />
     </task>
     <task id="LOCAL-00001" summary="days up to 4">
       <created>1607124955226</created>
@@ -107,7 +119,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607125138141</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="day 5">
+      <created>1607173389409</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1607173389409</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -116,56 +135,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="days up to 4" />
     <MESSAGE value="deleted target" />
-    <option name="LAST_COMMIT_MESSAGE" value="deleted target" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="436" y="185" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1607169183068">
-      <screen x="0" y="0" width="1366" height="768" />
-    </state>
-    <state x="436" y="185" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.768@0.0.1366.768" timestamp="1607169183068" />
-    <state x="488" y="99" key="#com.intellij.ide.util.MemberChooser" timestamp="1607168570290">
-      <screen x="0" y="0" width="1366" height="768" />
-    </state>
-    <state x="488" y="99" key="#com.intellij.ide.util.MemberChooser/0.0.1366.768@0.0.1366.768" timestamp="1607168570290" />
-    <state x="363" y="119" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1607116695104">
-      <screen x="0" y="0" width="1366" height="768" />
-    </state>
-    <state x="363" y="119" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1366.768@0.0.1366.768" timestamp="1607116695104" />
-    <state x="308" y="0" key="CommitChangelistDialog2" timestamp="1607172436779">
-      <screen x="0" y="0" width="1366" height="768" />
-    </state>
-    <state x="308" y="0" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1607172436779" />
-    <state width="1323" height="192" key="GridCell.Tab.0.bottom" timestamp="1607173108152">
-      <screen x="0" y="0" width="1366" height="768" />
-    </state>
-    <state width="1323" height="192" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1607173108152" />
-    <state width="1323" height="192" key="GridCell.Tab.0.center" timestamp="1607173108152">
-      <screen x="0" y="0" width="1366" height="768" />
-    </state>
-    <state width="1323" height="192" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1607173108152" />
-    <state width="1323" height="192" key="GridCell.Tab.0.left" timestamp="1607173108152">
-      <screen x="0" y="0" width="1366" height="768" />
-    </state>
-    <state width="1323" height="192" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1607173108152" />
-    <state width="1323" height="192" key="GridCell.Tab.0.right" timestamp="1607173108152">
-      <screen x="0" y="0" width="1366" height="768" />
-    </state>
-    <state width="1323" height="192" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1607173108152" />
-    <state x="184" y="28" key="SettingsEditor" timestamp="1607119075895">
-      <screen x="0" y="0" width="1366" height="768" />
-    </state>
-    <state x="184" y="28" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1607119075895" />
-    <state x="275" y="116" key="Vcs.Push.Dialog.v2" timestamp="1607125158746">
-      <screen x="0" y="0" width="1366" height="768" />
-    </state>
-    <state x="275" y="116" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1607125158746" />
-    <state x="339" y="172" key="run.anything.popup" timestamp="1607169105407">
-      <screen x="0" y="0" width="1366" height="768" />
-    </state>
-    <state x="339" y="172" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1607169105407" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1607172380545">
-      <screen x="0" y="0" width="1366" height="768" />
-    </state>
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1607172380545" />
+    <MESSAGE value="day 5" />
+    <option name="LAST_COMMIT_MESSAGE" value="day 5" />
   </component>
 </project>
