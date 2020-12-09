@@ -10,7 +10,8 @@ use crate::days::day5::Day5;
 use crate::days::day6::Day6;
 use crate::days::day7::Day7;
 use crate::days::day8::Day8;
+use crate::days::day9::Day9;
 
 fn main() {
-    println!("{:?}", Day8.part2());
+    println!("{:?}", Day9.part2());
 }
