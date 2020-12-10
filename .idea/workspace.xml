@@ -5,11 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4e322702-71bd-46f2-a4ef-e461e39bccbd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/days/day9.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/inputs/9" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/days/day10.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/inputs/10" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cargo.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.toml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/days/mod.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/days/mod.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.rs" afterDir="false" />
     </list>
@@ -64,6 +62,17 @@
     </key>
   </component>
   <component name="RunManager">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Run" type="CargoCommandRunConfiguration" factoryName="Cargo Command">
       <option name="channel" value="DEFAULT" />
       <option name="command" value="run --package aoc --bin aoc" />
@@ -98,7 +107,8 @@
       <workItem from="1607254456261" duration="13662000" />
       <workItem from="1607355726738" duration="879000" />
       <workItem from="1607426700967" duration="6966000" />
-      <workItem from="1607514442816" duration="2877000" />
+      <workItem from="1607514442816" duration="7750000" />
+      <workItem from="1607608792463" duration="4411000" />
     </task>
     <task id="LOCAL-00001" summary="days up to 4">
       <created>1607124955226</created>
@@ -142,7 +152,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607514463835</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="day 9">
+      <created>1607517370185</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1607517370185</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -155,6 +172,7 @@
     <MESSAGE value="day 6" />
     <MESSAGE value="day 7 fucking nightmare" />
     <MESSAGE value="day 8" />
-    <option name="LAST_COMMIT_MESSAGE" value="day 8" />
+    <MESSAGE value="day 9" />
+    <option name="LAST_COMMIT_MESSAGE" value="day 9" />
   </component>
 </project>
