@@ -74,6 +74,18 @@ impl Day10 {
         re.push(last);
         re
     }
+
+    fn part2_oneliner(self) -> usize {
+        let list = self.parse();
+        let max = list.last().unwrap().clone();
+        (1..=max).filter(|x| list.contains(x))
+            .fold(
+                vec![(0, 1)].into_iter().collect::<HashMap<usize, usize>>(),
+                |mut acc, i| {
+                    acc.insert(i, (1..=3).into_iter().map(|x| acc.get(&(Wrapping(i) - Wrapping(x)).0).unwrap_or(&0)).fold(0usize, |acc, x| acc + x));
+                    acc
+                }).get(&max).unwrap().clone()
+    }
 }
 
 impl Day<usize> for Day10 {
@@ -98,6 +110,8 @@ impl Day<usize> for Day10 {
         }
         acc.get(&max).unwrap().clone()
     }
+
+
 
     fn input(&self) -> &str {
         include_str!("../inputs/10")
