@@ -15,7 +15,7 @@ impl Seat {
             '#' => Some(Self::Occupied),
             'L' => Some(Self::Unoccupied),
             '.' => Some(Self::Floor),
-            _ => None
+            _ => None,
         }
     }
 }
@@ -25,8 +25,9 @@ impl ToString for Seat {
         match self {
             Self::Occupied => "#",
             Self::Unoccupied => "L",
-            Self::Floor => "."
-        }.to_string()
+            Self::Floor => ".",
+        }
+        .to_string()
     }
 }
 
@@ -38,16 +39,18 @@ struct SeatGrid {
 
 impl SeatGrid {
     fn parse<T: AsRef<str>>(s: T) -> Self {
-        let seats = s.as_ref().split_ascii_whitespace()
-            .map(|x|
-                x.chars().map(|c| Seat::parse(c).unwrap())
+        let seats = s
+            .as_ref()
+            .split_ascii_whitespace()
+            .map(|x| {
+                x.chars()
+                    .map(|c| Seat::parse(c).unwrap())
                     .collect::<Vec<Seat>>()
                     .into_boxed_slice()
-            ).collect::<Vec<Box<[Seat]>>>().into_boxed_slice();
-        Self {
-            seats,
-            part: false,
-        }
+            })
+            .collect::<Vec<Box<[Seat]>>>()
+            .into_boxed_slice();
+        Self { seats, part: false }
     }
 
     fn get_location_adjacent(&self, location: (usize, usize)) -> Vec<(usize, usize)> {
@@ -68,13 +71,16 @@ impl SeatGrid {
                     loop {
                         placement.0 += x.0;
                         placement.1 += x.1;
-                        if placement.0 < 0 ||
-                            placement.1 < 0 ||
-                            placement.0 >= self.seats.len() as isize ||
-                            placement.1 >= (&self.seats[placement.0 as usize]).len() as isize {
+                        if placement.0 < 0
+                            || placement.1 < 0
+                            || placement.0 >= self.seats.len() as isize
+                            || placement.1 >= (&self.seats[placement.0 as usize]).len() as isize
+                        {
                             return None;
                         }
-                        if self.seats[placement.0 as usize][placement.1 as usize].clone() != Seat::Floor {
+                        if self.seats[placement.0 as usize][placement.1 as usize].clone()
+                            != Seat::Floor
+                        {
                             break;
                         }
                     }
@@ -93,7 +99,8 @@ impl SeatGrid {
     }
 
     fn get_adjacent_seats(&self, location: (usize, usize)) -> Vec<&Seat> {
-        self.get_location_adjacent(location).into_iter()
+        self.get_location_adjacent(location)
+            .into_iter()
             .map(|(x, y)| &self.seats[x][y])
             .collect()
     }
@@ -134,7 +141,11 @@ impl SeatGrid {
 
 impl ToString for SeatGrid {
     fn to_string(&self) -> String {
-        self.seats.iter().map(|x| x.iter().map(|y| y.to_string()).collect::<String>()).collect::<Vec<String>>().join("\r\n")
+        self.seats
+            .iter()
+            .map(|x| x.iter().map(|y| y.to_string()).collect::<String>())
+            .collect::<Vec<String>>()
+            .join("\r\n")
     }
 }
 
@@ -161,24 +172,31 @@ impl Day11 {
 
 impl Day<usize> for Day11 {
     fn part1(&self) -> usize {
-        self.parse().finish().to_vec().into_iter()
-            .map(|x|
-                x.to_vec().into_iter()
+        self.parse()
+            .finish()
+            .to_vec()
+            .into_iter()
+            .map(|x| {
+                x.to_vec()
+                    .into_iter()
                     .map(|x| (x == Seat::Occupied) as usize)
                     .fold(0, |acc, x| acc + x)
-            )
+            })
             .fold(0, |acc, x| acc + x)
     }
 
     fn part2(&self) -> usize {
         let mut grid = self.parse();
         grid.part = true;
-        grid.finish().to_vec().into_iter()
-            .map(|x|
-                x.to_vec().into_iter()
+        grid.finish()
+            .to_vec()
+            .into_iter()
+            .map(|x| {
+                x.to_vec()
+                    .into_iter()
                     .map(|x| (x == Seat::Occupied) as usize)
                     .fold(0, |acc, x| acc + x)
-            )
+            })
             .fold(0, |acc, x| acc + x)
     }
 

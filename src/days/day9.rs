@@ -1,6 +1,6 @@
 use crate::days::Day;
-use std::collections::VecDeque;
 use combinations::Combinations;
+use std::collections::VecDeque;
 
 #[derive(Debug)]
 struct ContinuesSubsets<T> {
@@ -10,7 +10,7 @@ struct ContinuesSubsets<T> {
 }
 
 impl<V> ContinuesSubsets<V> {
-    fn new<T: Iterator<Item=V>>(v: T) -> Self {
+    fn new<T: Iterator<Item = V>>(v: T) -> Self {
         Self {
             start: 0,
             end: 2,
@@ -20,7 +20,9 @@ impl<V> ContinuesSubsets<V> {
 }
 
 impl<T> Iterator for ContinuesSubsets<T>
-    where T: Clone {
+where
+    T: Clone,
+{
     type Item = Vec<T>;
 
     fn next(&mut self) -> Option<Self::Item> {
@@ -37,16 +39,15 @@ impl<T> Iterator for ContinuesSubsets<T>
     }
 }
 
-
 #[derive(Debug)]
 struct XmasRunner {
     loaded: VecDeque<u128>,
     unloaded: VecDeque<u128>,
-    finished: Vec<u128>
+    finished: Vec<u128>,
 }
 
 impl XmasRunner {
-    fn new<T: Iterator<Item=u128>>(load_size: usize, values: T) -> Self {
+    fn new<T: Iterator<Item = u128>>(load_size: usize, values: T) -> Self {
         let mut loaded = VecDeque::with_capacity(load_size);
         let mut unloaded = values.collect::<VecDeque<u128>>();
         for _ in 0..load_size {
@@ -55,16 +56,16 @@ impl XmasRunner {
         Self {
             loaded,
             unloaded,
-            finished: Vec::new()
+            finished: Vec::new(),
         }
     }
 
-    fn get_loaded_comb(&self) -> impl Iterator<Item=(u128, u128)> {
+    fn get_loaded_comb(&self) -> impl Iterator<Item = (u128, u128)> {
         Combinations::new(self.loaded.clone().into_iter().collect(), 2)
             .map(|x| (x.get(0).unwrap().clone(), x.get(1).unwrap().clone()))
     }
 
-    fn finish(self) -> impl Iterator<Item = u128>{
+    fn finish(self) -> impl Iterator<Item = u128> {
         self.finished.into_iter().chain(self.loaded.into_iter())
     }
 }
@@ -85,7 +86,10 @@ pub struct Day9;
 
 impl Day9 {
     fn parse(&self) -> Vec<u128> {
-        self.input().split_ascii_whitespace().map(|x| x.parse::<u128>().unwrap()).collect::<Vec<u128>>()
+        self.input()
+            .split_ascii_whitespace()
+            .map(|x| x.parse::<u128>().unwrap())
+            .collect::<Vec<u128>>()
     }
 }
 
@@ -98,7 +102,9 @@ impl Day<u128> for Day9 {
     fn part2(&self) -> u128 {
         let mut runner = XmasRunner::new(25, self.parse().into_iter());
         let n = runner.find(|(number, valid)| !*valid).unwrap().0;
-        let mut found = ContinuesSubsets::new(runner.finish()).find(|x| x.into_iter().fold(0, |acc, x| acc + x) == n).unwrap();
+        let mut found = ContinuesSubsets::new(runner.finish())
+            .find(|x| x.into_iter().fold(0, |acc, x| acc + x) == n)
+            .unwrap();
         found.sort();
         found.last().unwrap() + found.first().unwrap()
     }

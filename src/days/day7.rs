@@ -1,8 +1,8 @@
 use crate::days::Day;
 use regex::Regex;
-use std::net::ToSocketAddrs;
-use std::collections::{HashMap, HashSet};
 use std::collections::hash_map::RandomState;
+use std::collections::{HashMap, HashSet};
+use std::net::ToSocketAddrs;
 use std::ops::Deref;
 
 #[derive(Debug, Clone)]
@@ -40,23 +40,36 @@ impl Day7 {
     fn raw_parse(&self) -> Vec<(String, Vec<(usize, String)>)> {
         let initial_regex = Regex::new(r"([^\s]+\s[^\s]+)\sbags\scontain\s(.+)").unwrap();
         let argument_regex = Regex::new(r"([0-9])\s([^\s]+\s[^\s]+)\sbags?").unwrap();
-        let split: Vec<&str> = self.input().split("\r\n").filter(|x| !x.is_empty()).collect::<Vec<&str>>();
-        split.into_iter().map(|x| {
-            let caps = initial_regex.captures(x).unwrap();
-            let name = caps.get(1).unwrap().as_str().to_string();
-            let mut argument = caps.get(2).unwrap().as_str().to_string();
-            argument.pop();
-            if argument == "no other bags" {
-                return (name, Vec::new());
-            }
-            let argument_split: Vec<&str> = argument.split(", ").collect::<Vec<&str>>();
-            (name, argument_split.into_iter().map(|y| {
-                let c = argument_regex.captures(y).unwrap();
-                let v = c.get(1).unwrap().as_str().parse::<usize>().unwrap();
-                let n = c.get(2).unwrap().as_str().to_string();
-                (v, n)
-            }).collect::<Vec<(usize, String)>>())
-        }).collect::<Vec<(String, Vec<(usize, String)>)>>()
+        let split: Vec<&str> = self
+            .input()
+            .split("\r\n")
+            .filter(|x| !x.is_empty())
+            .collect::<Vec<&str>>();
+        split
+            .into_iter()
+            .map(|x| {
+                let caps = initial_regex.captures(x).unwrap();
+                let name = caps.get(1).unwrap().as_str().to_string();
+                let mut argument = caps.get(2).unwrap().as_str().to_string();
+                argument.pop();
+                if argument == "no other bags" {
+                    return (name, Vec::new());
+                }
+                let argument_split: Vec<&str> = argument.split(", ").collect::<Vec<&str>>();
+                (
+                    name,
+                    argument_split
+                        .into_iter()
+                        .map(|y| {
+                            let c = argument_regex.captures(y).unwrap();
+                            let v = c.get(1).unwrap().as_str().parse::<usize>().unwrap();
+                            let n = c.get(2).unwrap().as_str().to_string();
+                            (v, n)
+                        })
+                        .collect::<Vec<(usize, String)>>(),
+                )
+            })
+            .collect::<Vec<(String, Vec<(usize, String)>)>>()
     }
 
     fn parse(&self) -> HashMap<String, Box<Bag>, RandomState> {
@@ -86,7 +99,12 @@ impl Day7 {
     fn count2(&self, a: String, map: &HashMap<String, Box<Bag>>) -> usize {
         println!("{:?}", a);
         let b = map.get(&a).unwrap();
-        b.subs.clone().into_iter().map(|x| self.count2(x.1, &map) * x.0).sum::<usize>() + 1
+        b.subs
+            .clone()
+            .into_iter()
+            .map(|x| self.count2(x.1, &map) * x.0)
+            .sum::<usize>()
+            + 1
     }
 }
 

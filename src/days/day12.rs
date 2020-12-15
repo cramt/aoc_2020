@@ -27,20 +27,22 @@ impl Instruction {
             "L" => Some(Self::Left(value)),
             "R" => Some(Self::Right(value)),
             "F" => Some(Self::Forward(value)),
-            _ => None
+            _ => None,
         }
     }
 }
 
 #[derive(Debug)]
-struct ShipRunner<I: Iterator<Item=Instruction>> {
+struct ShipRunner<I: Iterator<Item = Instruction>> {
     inner: I,
     dir: (isize, isize),
     pos: (isize, isize),
 }
 
 impl<I> ShipRunner<I>
-    where I: Iterator<Item=Instruction> {
+where
+    I: Iterator<Item = Instruction>,
+{
     fn new(t: I) -> Self {
         Self {
             inner: t,
@@ -65,13 +67,17 @@ impl<I> ShipRunner<I>
                     self.dir = (self.dir.1 * -1, self.dir.0)
                 }
             }
-            Instruction::Forward(v) => self.pos = (self.pos.0 + (self.dir.0 * v), self.pos.1 + (self.dir.1 * v))
+            Instruction::Forward(v) => {
+                self.pos = (self.pos.0 + (self.dir.0 * v), self.pos.1 + (self.dir.1 * v))
+            }
         }
     }
 }
 
 impl<I> Iterator for ShipRunner<I>
-    where I: Iterator<Item=Instruction> {
+where
+    I: Iterator<Item = Instruction>,
+{
     type Item = (isize, isize);
 
     fn next(&mut self) -> Option<Self::Item> {
@@ -82,14 +88,16 @@ impl<I> Iterator for ShipRunner<I>
 }
 
 #[derive(Debug)]
-struct ShipRunner2<I: Iterator<Item=Instruction>> {
+struct ShipRunner2<I: Iterator<Item = Instruction>> {
     inner: I,
     waypoing_pos: (isize, isize),
     ship_pos: (isize, isize),
 }
 
 impl<I> ShipRunner2<I>
-    where I: Iterator<Item=Instruction> {
+where
+    I: Iterator<Item = Instruction>,
+{
     fn new(t: I) -> Self {
         Self {
             inner: t,
@@ -114,13 +122,20 @@ impl<I> ShipRunner2<I>
                     self.waypoing_pos = (self.waypoing_pos.1 * -1, self.waypoing_pos.0)
                 }
             }
-            Instruction::Forward(v) => self.ship_pos = (self.ship_pos.0 + (self.waypoing_pos.0 * v), self.ship_pos.1 + (self.waypoing_pos.1 * v))
+            Instruction::Forward(v) => {
+                self.ship_pos = (
+                    self.ship_pos.0 + (self.waypoing_pos.0 * v),
+                    self.ship_pos.1 + (self.waypoing_pos.1 * v),
+                )
+            }
         }
     }
 }
 
 impl<I> Iterator for ShipRunner2<I>
-    where I: Iterator<Item=Instruction> {
+where
+    I: Iterator<Item = Instruction>,
+{
     type Item = (isize, isize);
 
     fn next(&mut self) -> Option<Self::Item> {

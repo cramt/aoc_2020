@@ -1,6 +1,6 @@
 use crate::days::Day;
-use std::ops::RangeFrom;
 use std::cmp::min;
+use std::ops::RangeFrom;
 
 pub struct Day13;
 
@@ -8,13 +8,24 @@ impl Day13 {
     fn parse(&self) -> (usize, Vec<usize>) {
         let cut = self.input().split_ascii_whitespace().collect::<Vec<&str>>();
         let a = cut.get(0).unwrap().parse::<usize>().unwrap();
-        let b = cut.get(1).unwrap().split(',').filter_map(|x| x.parse::<usize>().ok()).collect::<Vec<usize>>();
+        let b = cut
+            .get(1)
+            .unwrap()
+            .split(',')
+            .filter_map(|x| x.parse::<usize>().ok())
+            .collect::<Vec<usize>>();
         (a, b)
     }
     fn parse2(&self) -> (usize, Vec<(usize, usize)>) {
         let cut = self.input().split_ascii_whitespace().collect::<Vec<&str>>();
         let a = cut.get(0).unwrap().parse::<usize>().unwrap();
-        let b = cut.get(1).unwrap().split(',').enumerate().filter_map(|(i, x)| Some((i, x.parse::<usize>().ok()?))).collect::<Vec<(usize, usize)>>();
+        let b = cut
+            .get(1)
+            .unwrap()
+            .split(',')
+            .enumerate()
+            .filter_map(|(i, x)| Some((i, x.parse::<usize>().ok()?)))
+            .collect::<Vec<(usize, usize)>>();
         (a, b)
     }
 }
@@ -37,7 +48,10 @@ impl Day<usize> for Day13 {
         let mut curr = 0usize;
         let mut step_size = 1usize;
         for (offset, bus_id) in buses.iter() {
-            let timestamp = (curr..).step_by(step_size).find(|timestamp| (timestamp + offset) % bus_id == 0).unwrap();
+            let timestamp = (curr..)
+                .step_by(step_size)
+                .find(|timestamp| (timestamp + offset) % bus_id == 0)
+                .unwrap();
             curr = timestamp;
             step_size *= bus_id;
         }

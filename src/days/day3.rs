@@ -22,7 +22,16 @@ impl Day3 {
     }
 
     fn parse(&self) -> Box<[Box<[bool]>]> {
-        self.input().split_ascii_whitespace().map(|x| x.chars().map(|x| x == '#').collect::<Vec<bool>>().into_boxed_slice()).collect::<Vec<Box<[bool]>>>().into_boxed_slice()
+        self.input()
+            .split_ascii_whitespace()
+            .map(|x| {
+                x.chars()
+                    .map(|x| x == '#')
+                    .collect::<Vec<bool>>()
+                    .into_boxed_slice()
+            })
+            .collect::<Vec<Box<[bool]>>>()
+            .into_boxed_slice()
     }
 }
 
@@ -34,7 +43,12 @@ impl Day<usize> for Day3 {
 
     fn part2(&self) -> usize {
         let value = self.parse();
-        [(1, 1), (1, 3), (1, 5), (1, 7), (2, 1)].to_vec().into_iter().map(|x| self.day3_crawl(&value, x)).fold(None, |acc, x| Some(acc.unwrap_or(1) * x)).unwrap()
+        [(1, 1), (1, 3), (1, 5), (1, 7), (2, 1)]
+            .to_vec()
+            .into_iter()
+            .map(|x| self.day3_crawl(&value, x))
+            .fold(None, |acc, x| Some(acc.unwrap_or(1) * x))
+            .unwrap()
     }
 
     fn input(&self) -> &str {
