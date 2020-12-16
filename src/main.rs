@@ -17,9 +17,10 @@ use crate::days::day8::Day8;
 use crate::days::day9::Day9;
 use crate::days::Day;
 use std::time::Instant;
+use crate::days::day16::Day16;
 
 fn main() {
     let now = Instant::now();
-    println!("value: {:?}", Day15.part2());
+    println!("value: {:?}", Day16.part2());
     println!("{:?} micro", now.elapsed().as_micros())
 }
